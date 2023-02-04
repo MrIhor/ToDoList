@@ -4,8 +4,32 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mb-5">
+    <h1 class="display-4">All tasks</h1>
 </div>
+
+@foreach (var item in Model.Exercise)
+{
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <div class="w-25">
+                <input class="form-check-input mt-0"
+                       type="checkbox"
+                       checked="@item.Done"/>
+            </div>
+            <div class="w-25">
+                @item.Title
+            </div>
+            <div class="w-25">
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </div>
+            <div class="w-25 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary">Edit</button>
+                <button type="button" class="btn btn-danger ml">Delete</button>
+                <button type="button" class="btn btn-info ml">Details</button>
+            </div>
+        </div>
+    </div>
+    <hr/>
+}
 

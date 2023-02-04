@@ -1,7 +1,14 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ToDoListApp.Data;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ToDoDatabase") ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
 
 var app = builder.Build();
 
