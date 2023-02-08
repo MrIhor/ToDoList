@@ -1,0 +1,29 @@
+﻿@page
+@model ToDoListApp.Pages.EditModel
+@{     ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <h3>Edit Exercise</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <input asp-for="Exercise.Id" type="hidden" />
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Exercise.Title"></label>
+                <input asp-for="Exercise.Title" class="form-control" />
+                <span class="alert-danger" asp-validation-for="Exercise.Title"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Exercise.Descriptions"></label>
+                <input asp-for="Exercise.Descriptions" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" asp-page="./Index">Cancel</a>
+    </form>
+</div>

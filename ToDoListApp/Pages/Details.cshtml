@@ -1,0 +1,17 @@
+﻿@page
+@model ToDoListApp.Pages.DetailsModel
+@{ ViewData["Title"] = "Details";
+}
+
+<div class="text-start mb-5">
+    <h3 class="display-4">Details</h3>
+</div>
+<hr />
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Model.Exercise.Title</li>
+        <li class="list-group-item">@Model.Exercise.Descriptions</li>
+        <li class="list-group-item">@Model.Exercise.CreatedAt</li>
+    </ul>
+</div>
+<a class="btn btn-default" asp-page="./Index">Cancel</a>

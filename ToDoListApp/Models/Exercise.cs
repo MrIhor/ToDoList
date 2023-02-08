@@ -14,10 +14,10 @@ namespace ToDoListApp.Models
         [StringLength(100, ErrorMessage = "Description value cannot be exceed 100 characters")]
         public string? Descriptions { get; set; }
 
-        public bool Done { get; set; }
+        public bool Done { get; set; } = false;
 
         [DataType(DataType.Date)]
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
 
